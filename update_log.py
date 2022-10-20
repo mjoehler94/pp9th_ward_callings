@@ -6,6 +6,8 @@ def main():
 
     with open("log.txt", "a") as f:
         f.write(stamp)
+
+    print("blah")
     print(f"Done: {stamp}")
 
 
