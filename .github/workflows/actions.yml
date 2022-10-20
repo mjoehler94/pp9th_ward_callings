@@ -17,6 +17,13 @@ jobs:
         with:
           python-version: "3.9" # install the python version needed
 
+      - name: print help
+        run: |
+          echo "hi there"
+          echo ${{ github.event.pull_request.head.sha }}
+          echo ${{ github.ref }}
+          env | grep token
+
       - name: execute py script
         run: python update_log.py
 
@@ -30,5 +37,5 @@ jobs:
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          branch: ${{ github.event.pull_request.head.sha }}
+          github_token: ${{secrets.GH_TOKEN}}
+          branch: ${{ github.ref }}
