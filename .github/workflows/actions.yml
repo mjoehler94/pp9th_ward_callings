@@ -22,7 +22,7 @@ jobs:
           echo "hi there"
           echo ${{ github.event.pull_request.head.sha }}
           echo ${{ github.ref }}
-          env | grep token
+          git rev-parse --abbrev-ref HEAD
 
       - name: execute py script
         run: python update_log.py
