@@ -1,0 +1,5 @@
+secrets.json
+.python-version
+.DS_Store
+__pycache__
+church_creds.json
