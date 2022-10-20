@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: checkout repo content
         uses: actions/checkout@v3 # checkout the repository content to github runner
+        ref: log_branch
 
       - name: setup python
         uses: actions/setup-python@v4
