@@ -25,7 +25,9 @@ jobs:
       - name: run job
         env:
           CHURCH_JSON: ${{ secrets.CHURCH_JSON }}
-        run: python update_sheet.py
+        run: |
+          python update_sheet.py
+          echo "Job completed at $(time)"
 
       - name: commit files
         run: |
