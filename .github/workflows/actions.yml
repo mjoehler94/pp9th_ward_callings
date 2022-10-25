@@ -1,31 +1,31 @@
-name: run update_log.py
+name: run main.py
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 7 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo content
-        uses: actions/checkout@v3 # checkout the repository content to github runner
-        with:
-          ref: log_branch
+      - name: checkout repo
+        uses: actions/checkout@v2 # checkout the repository content to github runner
 
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9" # install the python version needed
+          python-version: "3.10" # install the python version needed
 
-      - name: print help
+      - name: install python packages
         run: |
-          echo "hi there"
-          echo ${{ github.event.pull_request.head.sha }}
-          echo ${{ github.ref }}
-          git rev-parse --abbrev-ref HEAD
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: execute py script
-        run: python update_log.py
+      - name: run job
+        env:
+          CHURCH_JSON: ${{ secrets.CHURCH_JSON }}
+        run: python update_sheet.py
 
       - name: commit files
         run: |
@@ -38,4 +38,4 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: log_branch
+          branch: main
