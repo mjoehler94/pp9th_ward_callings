@@ -95,6 +95,38 @@ def empty_sheet(sheet):
     return
 
 
+def trim_logs():
+    with open("log.txt") as f:
+        logs = f.readlines()
+
+    # keep only 3 weeks of logs
+    if len(logs) >= 21:
+        logs = logs[-20:]  # will have current log entry added later
+
+    with open("log.txt", "w") as f:
+        logs = f.writelines(logs)
+
+
+def add_log_to_readme():
+    # get readme content and log content
+    with open("README.md") as f:
+        readme = f.readlines()
+
+    with open("log.txt") as f:
+        logs = f.readlines()
+
+    # get most recent run details and format them
+    most_recent_log_entry = [l.strip() for l in logs[-1].split("  ")]
+
+    del most_recent_log_entry[1]
+    update = "- " + " UTC: ".join(most_recent_log_entry)
+
+    # update and rewrite readme contents
+    readme[-1] = update
+    with open("README.md", "w") as f:
+        f.writelines(readme)
+
+
 def main():
 
     LOG_FILENAME = "log.txt"
@@ -130,6 +162,11 @@ def main():
         logger.info("Job successfully completed")
     except:
         logger.error("Job failed")
+
+    # trim logs and update readme
+    trim_logs()
+    add_log_to_readme()
+
     return
 
 

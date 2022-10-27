@@ -2,4 +2,8 @@
 
 - the workflow in this repo should update the calling progress tracking spreadsheet with
   update information from the calling form responses
-- the job is scheduled to run everyday at 7am, but can also be triggered manually
+- the job is scheduled to run everyday at 7am Mountain Time (13 UCT), but can also be triggered manually.
+
+#### Details of most recent run:
+
+- 2022-10-27 13:38:49,067 UTC: INFO UTC: Job successfully completed
