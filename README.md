@@ -6,4 +6,4 @@
 
 #### Details of most recent run:
 
-- 2023-12-13 13:10:59,898 UTC: Job successfully completed
+- 2023-12-14 13:11:49,462 UTC: Job failed
