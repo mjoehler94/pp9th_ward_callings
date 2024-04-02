@@ -1,4 +1,3 @@
-2024-03-13 13:07:26,799  INFO   Job successfully completed
 2024-03-14 13:07:54,342  INFO   Job successfully completed
 2024-03-15 13:08:43,681  INFO   Job successfully completed
 2024-03-16 13:07:17,403  INFO   Job successfully completed
@@ -18,3 +17,4 @@
 2024-03-30 13:08:45,560  INFO   Job successfully completed
 2024-03-31 13:08:26,249  INFO   Job successfully completed
 2024-04-01 13:07:53,295  INFO   Job successfully completed
+2024-04-02 13:11:08,384  ERROR  Job failed
